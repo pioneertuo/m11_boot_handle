@@ -1,0 +1,13 @@
+project/DebugConfig/
+project/Listings/
+project/Objects/
+project/RTE/
+
+*.scvd
+*.bin
+
+*.uvguix.*
+*.uvoptx
+
+
+
