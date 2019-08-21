@@ -14,7 +14,8 @@ void uart3_send_connect_ack(void)
 	uart3_tx_tab[4]  = 0x06;
 	uart3_tx_tab[5]  = CONN_02_PRODUCT;
 	uart3_tx_tab[6]  = 0x01;
-	uart3_tx_tab[7]  = PRODUCT_M11_SELECT;
+//	uart3_tx_tab[7]  = PRODUCT_M11_SELECT;
+	uart3_tx_tab[7]  = PRODUCT_M11;
 	uart3_tx_tab[8]  = CONN_03_STATE;
 	uart3_tx_tab[9]  = 0x01;
 	uart3_tx_tab[10] = STATE_BOOT;
