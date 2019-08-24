@@ -1,9 +1,11 @@
 #ifndef __INCLUDES_H__
 #define __INCLUDES_H__
 
-#include "F:\R&D\public\protocol\app_offset.h"
-#include "F:\R&D\public\protocol\cmd.h"
-#include "F:\R&D\public\protocol\cmd_arg.h"
+//#include "F:\R&D\public\protocol\app_offset.h"
+//#include "F:\R&D\public\protocol\cmd.h"
+//#include "F:\R&D\public\protocol\cmd_arg.h"
+
+#include "D:\R&D\public\protocol\protocol.h"
 
 #include "stm32f30x.h"
 

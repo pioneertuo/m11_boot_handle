@@ -69,7 +69,8 @@ static void uart3_rx_boot_info(uint8_t *arg)
 	
 	product = arg[2];
 	
-	if(product == PRODUCT_M11_SELECT)
+//	if(product == PRODUCT_M11_SELECT)
+	if(product == PRODUCT_M11)
 	{
 		
 	}
