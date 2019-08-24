@@ -15,11 +15,11 @@ void uart1_parse_process(void)
 	
     while(1)
     {
-        if(uart1_fifo_fetch(&dat) == 0){
+        if(uart1_fifo_fetch(&dat) == 0) {   //串口1没有接收到数据
             break;
         }
         
-        if(parse_process(&uart1_parse, dat) == 1)
+        if(parse_process(&uart1_parse, dat) == 1)  //串口1接收到了数据
         {
             cmd = uart1_parse.frame[3];
             

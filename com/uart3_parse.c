@@ -32,20 +32,20 @@ void uart3_parse_process(void)
             
             switch(cmd)
             {
-                case CMD_01_CONNECT:
-                    uart3_send_connect_ack();
+                case CMD_01_CONNECT:				//接收到PC端的连接指令
+                    uart3_send_connect_ack();       //向上位机返回产品型号和固件版本号
                     break;
                 
                 case BOOT_CMD_START:
                     uart1_send_bytes(uart3_parse.frame, uart3_parse.frame_len);
                     break;
                 
-                case BOOT_CMD_INFO:
-                    uart3_rx_boot_info(arg);
+                case BOOT_CMD_INFO:					//接收到BOOT信息命令
+                    uart3_rx_boot_info(arg);    	//根据上位机发送下来的信息修改MCU内的固件版本号
                     break;
                 
                 case BOOT_CMD_FW_HANDLE:
-                    uart3_rx_boot_fw_handle(arg);
+                    uart3_rx_boot_fw_handle(arg);	//
                     break;
                 
                 case BOOT_CMD_FW_PIT:
