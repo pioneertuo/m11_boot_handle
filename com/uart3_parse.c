@@ -20,7 +20,7 @@ void uart3_parse_process(void)
     
     while(1)
     {
-        if(uart3_fifo_fetch(&dat) == 0)
+        if(uart3_fifo_fetch(&dat) == 0)    //串口3接收数据fifo为空则跳出此函数
         {
             break;
         }
@@ -32,20 +32,20 @@ void uart3_parse_process(void)
             
             switch(cmd)
             {
-                case CMD_01_CONNECT:
-                    uart3_send_connect_ack();
+                case CMD_01_CONNECT:			//PC端发送连接命令
+                    uart3_send_connect_ack();	//向PC端返回产品型号和固件版本
                     break;
                 
-                case BOOT_CMD_START:
+                case BOOT_CMD_START:			
                     uart1_send_bytes(uart3_parse.frame, uart3_parse.frame_len);
                     break;
                 
-                case BOOT_CMD_INFO:
-                    uart3_rx_boot_info(arg);
+                case BOOT_CMD_INFO:				//PC端下发的boot信息命令
+                    uart3_rx_boot_info(arg);    //可由PC端手动下发指令来设置固件版本号
                     break;
                 
-                case BOOT_CMD_FW_HANDLE:
-                    uart3_rx_boot_fw_handle(arg);
+                case BOOT_CMD_FW_HANDLE:		 //handle板固件命令
+                    uart3_rx_boot_fw_handle(arg);//接收handle板固件并写入到指定的FLASH地址中
                     break;
                 
                 case BOOT_CMD_FW_PIT:

@@ -10,22 +10,22 @@ int main(void)
 	btn_init();
 	
 	//如果中键未按下则跳转到应用程序
-	if(btn_center_active() == 0)
+	if(btn_center_active() == 0)       
 	{
 		launch_for_app();
 	}
 	
-	launch_for_boot();
+	launch_for_boot();   	//按住中键,再按下电源键，系统进入boot模式
 	
-	while(1)
+	while(1)				//若执行的是bootloder，下面则一直在执行
 	{
 		led_process();
 		
-		bat_shut_down_process();
+		bat_shut_down_process();   //关机处理过程
 		
-		uart1_parse_process();
+		uart1_parse_process();	   //串口1解析过程
 		
-		uart3_parse_process();
+		uart3_parse_process();	   //串口3解析过程
 	}
 }
 
@@ -34,8 +34,8 @@ static void launch_for_app(void)
 	//延时100ms，让pit先跳转
 	delay_ms(100);
 	
-	sys_periph_deinit();
-	sys_jump_to_app(M11_HANDLE_APP_ADDR_OFFSET);
+	sys_periph_deinit();							//将bootloder中用到的外设恢复至缺省值
+	sys_jump_to_app(M11_HANDLE_APP_ADDR_OFFSET);	//从boot程序块跳转至APP代码块执行
 }
 
 static void launch_for_boot(void)
