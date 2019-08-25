@@ -15,7 +15,7 @@ void uart1_parse_process(void)
 	
     while(1)
     {
-        if(uart1_fifo_fetch(&dat) == 0){
+        if(uart1_fifo_fetch(&dat) == 0){	//串口1fifo为空,(还没接收到数据,则跳出)
             break;
         }
         

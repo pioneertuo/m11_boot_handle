@@ -48,8 +48,8 @@ void uart3_parse_process(void)
                     uart3_rx_boot_fw_handle(arg);//接收handle板固件并写入到指定的FLASH地址中
                     break;
                 
-                case BOOT_CMD_FW_PIT:
-                    uart1_send_bytes(uart3_parse.frame, uart3_parse.frame_len);
+                case BOOT_CMD_FW_PIT:												//pit板固件命令
+                    uart1_send_bytes(uart3_parse.frame, uart3_parse.frame_len);		//主板handle通过串口1将pit板固件发送到副板pit板
                     break;
                 
                 case BOOT_CMD_END:
